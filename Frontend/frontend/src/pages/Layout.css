@@ -1,0 +1,156 @@
+html, body{
+  height: 100vh;
+}
+
+/*menggunakan image untuk background halaman*/
+body {
+  background-image: url('../image/76YS.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#c{
+  font-size: 30px;
+  text-align: center;
+}
+
+#b{
+    display: flex;/*flexbox untuk mengatur anak - anaknya*/
+    margin-top: 10px;
+    justify-content: space-between;/*menyusun agar letak kedua button akan muncul di kiri dan kanan*/
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 40px;
+}
+
+/*memberi kesan button memiliki efek neon*/
+.btn-neon-blue {
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 252, 252, 0.8);
+}
+
+.btn-neon-red {
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+}
+
+/*button akan membesar jika dihover*/
+.btn:hover {
+  animation: grow 1s forwards;/*efek grow diatur dalam @keyframe*/
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+#a {
+  padding-top: 30px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  font-family: sans-serif;
+  color: rgba(0, 252, 252, 1);
+  position: relative;
+  width: 60vh;
+  height: 40vh;
+  border-radius: 30px;
+  border: 2px solid rgba(0, 252, 252, 1);
+  background-color: rgba(0, 252, 252, 0.35);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 20px rgba(0, 252, 252, 0.8);
+}
+
+/*memberi kesan agar tamapk berupa hologram yang menampilkan info - info*/
+.holo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 30vh;
+  height: 5px;
+  bottom: 5vh;
+  margin: -5px auto 0;
+  background-color: rgba(0, 252, 252, .35);
+  border-radius: 100%;
+  filter: blur(2.5px);/*memberi efek blur*/
+  transform: perspective(100px) rotateX(-30deg);
+  transform-style: preserve-3d;
+  animation: holographic 1.5s infinite alternate;
+  backface-visibility: hidden;
+}
+
+/*pseudo element karena menambahkan efek tambahan*/
+.holo:after {
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  content: "";
+  height: 10px;
+  background-color: rgba(0, 252, 252, .5);
+  border-radius: 100%;
+  filter: blur(2.5px);
+}
+
+/*efek elemen dari .holo*/
+.holo .holo {
+  animation-duration: .75s;/*durasi animasi yaitu 0.75s*/
+  opacity: .5;/*kejernihan : 50%*/
+}
+
+@keyframes float {
+  from {/*kondisi awal*/
+      will-change: unset;/*tidak ada perubahan*/
+      transform: translateY(-10px);/*menggeser sejauh 10px dari posisi awal*/
+  }
+  to {/*kondisi akhir*/
+      will-change: transform;/*berubah selama animasi*/
+      transform: translateY(-30px);/*menggeser sejauh 30px dari posisi awal*/
+  }
+}
+
+@keyframes holographic {
+  from {
+      box-shadow:
+          0 -75px 5px rgba(0, 252, 252, .15),
+          0 -1px 2px rgba(0, 252, 252, .5),
+          0 -45px 5px rgba(0, 252, 252, .15),
+          0 -2px 3px rgba(0, 252, 252, .5),
+          0 -3px 4px rgba(0, 252, 252, .5),
+          0 -4px 6px rgba(0, 252, 252, .5),
+          0 -5px 10px rgba(0, 252, 252, .75),
+          0 -7px 20px rgba(0, 252, 252, .75),
+          0 -10px 30px rgba(0, 252, 252, .75),
+          0 -15px 40px rgba(0, 252, 252, .75),
+          0 -25px 50px rgba(0, 252, 252, .75),
+          0 -35px 60px rgba(0, 252, 252, .85),
+          0 -45px 70px rgba(0, 252, 252, .95),
+          0 -65px 80px rgba(0, 252, 252, 1),
+          0 -75px 90px rgba(0, 252, 252, 1);
+  }
+  to {
+      box-shadow:/*bayangan yang akan diterapkan*/
+          0 -1px 5px rgba(0, 252, 252, .15),
+          0 -1px 2px rgba(0, 252, 252, .5),
+          0 -1px 5px rgba(0, 252, 252, .15),
+          0 -2px 3px rgba(0, 252, 252, .5),
+          0 -3px 4px rgba(0, 252, 252, .5),
+          0 -4px 6px rgba(0, 252, 252, .5),
+          0 -5px 7px rgba(0, 252, 252, .75),
+          0 -7px 10px rgba(0, 252, 252, .75),
+          0 -10px 15px rgba(0, 252, 252, .75),
+          0 -15px 20px rgba(0, 252, 252, .75),
+          0 -25px 25px rgba(0, 252, 252, .75),
+          0 -35px 30px rgba(0, 252, 252, .85),
+          0 -45px 35px rgba(0, 252, 252, .95),
+          0 -65px 40px rgba(0, 252, 252, 1),
+          0 -75px 50px rgba(0, 252, 252, 1);
+  }
+}
